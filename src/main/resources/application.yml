@@ -1,8 +1,10 @@
 server:
-  port: 8080
+  port: 8888
+
 spring:
   application:
-    name: COUND-CONFIG
+    name: config-server
+
   cloud:
     config:
       server:
@@ -10,3 +12,16 @@ spring:
           uri: https://github.com/sub-kttkpm-14btt-maivuviethungduc/file-config
           default-label: main
         bootstrap: false
+
+eureka:
+  instance:
+    hostname: euroku-cus-order.herokuapp.com
+    homePageUrl: https://${eureka.instance.hostName}/
+    home-page-url-path: https://${eureka.instance.hostName}
+    non-secure-port-enabled: true
+    non-secure-port: 80
+    secure-port: 443
+    secure-port-enabled: false
+  client:
+    serviceUrl:
+      defaultZone: https://euroku-cus-order.herokuapp.com/eureka
